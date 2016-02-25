@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myRoster">
+
+<head>
+    <meta charset="UTF-8">
+    <title>NFL Roster</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+
+<body ng-controller="RosterController">
+
+    <div class="col-md-12">
+        <div class="container">
+            <div class="col-md-8">
+                <div class="panel panel-primary roster">
+                    <div class="panel-heading">Add Player</div>
+                    <form ng-submit="addPlayer()">
+                        <div class="form-group">
+                            <label for="addPlayerName">Player Name</label>
+                            <input type="text" class="form-control" id="addPlayerName" placeholder="First Name Last Name" ng-model="newPlayer.Name">
+
+                            <label for="addPlayePosition">Player Position</label>
+                            <input type="text" class="form-control" id="addPlayePosition" placeholder="Position" ng-model="newPlayer.Position">
+
+                            <label for="addPlayeNumber">Player Number</label>
+                            <input type="text" class="form-control" id="addPlayerNumber" placeholder="Player Number" ng-model="newPlayer.Number">
+                            <!--<button ng-click="addPlayer()">HI</button>-->
+                            <input type="submit" class="btn btn-default"  value="Add to Team">
+
+
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div ng-repeat="player in players">
+        <div class="col-md-3">
+            <div class="panel panel-primary roster">
+                <div class="panel-heading">{{player.name}}</div>
+                <div class="panel-body">
+                    <div class="player-card">
+                        <img src="http://s.nflcdn.com/static/content/public/image/fantasy/transparent/200x200/" class="center-block">
+                        <p class="text-center">Player Name: {{player.name}}</p>
+                        <p class="text-center">Player Position: {{player.number}}</p>
+                        <p class="text-center">Player Number: {{player.position}}</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!--//CONTROLLERS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controller/controller.js"></script>
+    <script src="app/controller/data.service.js"></script>
+    <script src="app/controller/rosterController.js"></script>
+</body>
+
+</html>
